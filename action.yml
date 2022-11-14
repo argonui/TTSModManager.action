@@ -1,0 +1,21 @@
+name: "Generate TTS Mod"
+description: "Use TTSModManager to generate a TTS mod"
+outputs:
+  mod:
+    description: "built mod ready for tts"
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v3
+    - run: wget https://github.com/argonui/TTSModManager/releases/download/v0.2.2/TTSModManager-Linux
+      shell: bash
+    - run: chmod +x TTSModManager-Linux
+      shell: bash
+    - run: ./TTSModManager-Linux -moddir="./"
+      shell: bash
+    - name: Upload final config
+      uses: actions/upload-artifact@v3
+      with:
+        name: TTSMod
+        path: ./output.json
