@@ -25,5 +25,5 @@ jobs:
       contents: write
       actions: read
     steps:
-      - uses: argonui/TTSModManager.action@v0.2.1
+      - uses: argonui/TTSModManager.action@v1.0.0
 ```
