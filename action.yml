@@ -21,10 +21,10 @@ runs:
     - run: chmod +x TTSModManager-Linux
       shell: bash
     - run: ./TTSModManager-Linux -moddir="./" -modfile=${{ inputs.output-file }}
-      if: ${{ inputs.specific-object == "" }}
+      if: inputs.specific-object == ''
       shell: bash
     - run: ./TTSModManager-Linux -moddir="./" -objin=${{ inputs.specific-object }} -objout=${{ inputs.output-file }}
-      if: ${{ inputs.specific-object != "" }}
+      if: inputs.specific-object != ''
       shell: bash
     - name: Upload final config
       uses: actions/upload-artifact@v3
